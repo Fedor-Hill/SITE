@@ -3,8 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Simple Webpage with Tabs</title>
+    <title>My Simple Webpage with Animated Tabs</title>
     <style>
+        body {
+            background-image: url('image.png');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        h2 {
+            text-align: center;
+        }
         .tabs {
             display: flex;
             cursor: pointer;
@@ -23,15 +38,16 @@
         }
         .content {
             display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
         }
         .active {
             display: block;
+            opacity: 1;
         }
     </style>
 </head>
 <body>
-    <h1>Welcome to My Webpage</h1>
-    <p>This is a simple HTML page created as an example.</p>
     <h2>Менің туған жерім</h2>
 
     <div class="tabs">
