@@ -3,10 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Simple Webpage</title>
+    <title>My Simple Webpage with Tabs</title>
+    <style>
+        .tabs {
+            display: flex;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+        .tab {
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            margin: 0 5px;
+            transition: background 0.3s;
+        }
+        .tab:hover {
+            background: rgba(255, 255, 255, 0.5);
+        }
+        .content {
+            display: none;
+        }
+        .active {
+            display: block;
+        }
+    </style>
 </head>
 <body>
     <h1>Welcome to My Webpage</h1>
     <p>This is a simple HTML page created as an example.</p>
+    <h2>Менің туған жерім</h2>
+
+    <div class="tabs">
+        <button class="tab" onclick="showContent('tab1')">Tab 1</button>
+        <button class="tab" onclick="showContent('tab2')">Tab 2</button>
+        <button class="tab" onclick="showContent('tab3')">Tab 3</button>
+    </div>
+
+    <div id="tab1" class="content active">
+        <h3>Content for Tab 1</h3>
+        <p>This is the content for the first tab.</p>
+    </div>
+    <div id="tab2" class="content">
+        <h3>Content for Tab 2</h3>
+        <p>This is the content for the second tab.</p>
+    </div>
+    <div id="tab3" class="content">
+        <h3>Content for Tab 3</h3>
+        <p>This is the content for the third tab.</p>
+    </div>
+
+    <script>
+        function showContent(tabId) {
+            // Hide all content
+            const contents = document.querySelectorAll('.content');
+            contents.forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // Show the selected content
+            const activeContent = document.getElementById(tabId);
+            activeContent.classList.add('active');
+        }
+    </script>
 </body>
 </html>
